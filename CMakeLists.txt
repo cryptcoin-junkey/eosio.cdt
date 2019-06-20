@@ -1,18 +1,11 @@
 cmake_minimum_required(VERSION 3.5)
 project(eosio_cdt)
 
-find_program(SCCACHE_FOUND sccache)
-if (SCCACHE_FOUND)
-   message(STATUS "Using sccache")
-   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE sccache)
-else()
-   find_program(CCACHE_FOUND ccache)
-   if (CCACHE_FOUND)
-      message(STATUS "Using ccache")
-      set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
-   endif()
+find_program(CCACHE_FOUND ccache)
+if (CCACHE_FOUND)
+   message(STATUS "Using ccache")
+   set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
 endif()
-
 
 set(VERSION_MAJOR 1)
 set(VERSION_MINOR 6)
